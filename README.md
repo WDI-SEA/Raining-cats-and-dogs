@@ -26,6 +26,7 @@ Make an express app! This folder has nothing but a readme and some JSON files!
 * Make an entry point
 * NPM init
 * Install dependencies
+* Create your `.gitignore` and add `node_modules` and `package-lock.json` to it
 * Set up your additional directories (views, static, routes/controllers)
 
 ### 2. Stub out your routes
