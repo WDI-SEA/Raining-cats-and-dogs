@@ -1,0 +1,41 @@
+body {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background: lightgray;
+    font-family: 'Patua One', cursive;
+}
+ 
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 20px;
+}
+
+#navBar {
+    width: 500px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    background: gray;
+    padding: 0px;
+}
+
+.navLink {
+    padding: 0px;
+    color: white;
+    line-height: 30px;
+}
+
+
+img {
+    width: 200px;
+    height: auto;
+}
+
+#homeImg {
+    width: 500px;
+    height: auto;
+}

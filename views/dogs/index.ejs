@@ -6,11 +6,12 @@
 
 <ul>
     <% myDogs.forEach((dog, index) => { %>
-        <li><img src="<%= dog.img %>"> <%= dog.name %> is famous for <%= dog.famousFor %>
+        <li><img src="<%= dog.img %>"> <br /> <%= dog.name %> is famous for <%= dog.famousFor %>
             <a href="/dogs/edit/<%= index %>">Edit</a>
             <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
                 <input type="submit" value="Delete">
             </form>
+            <br />
         </li>
     <% }) %>
 </ul>
