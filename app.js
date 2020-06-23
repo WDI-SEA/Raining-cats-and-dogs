@@ -18,4 +18,4 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(3000, () => {console.log('dino port go')})
+app.listen(3000, () => {console.log('catdog port go')})

@@ -1,0 +1,17 @@
+body {
+    background-color: #327bbe;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+ul {
+    text-align: left;
+}
+
+#navBar {
+    display: inline-block;
+}
