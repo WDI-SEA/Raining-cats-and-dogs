@@ -9,9 +9,30 @@ h1 {
 }
 
 ul {
-    text-align: left;
+    list-style-type: none;
+}
+
+li {
+    flex-direction: row;
+    margin: 0 10px;
+}
+
+a {
+    color: white;
 }
 
 #navBar {
+    display: flex;
+    
+}
+
+
+
+#editLink {
     display: inline-block;
 }
+
+#deleteForm {
+    display: inline-block;
+}
+
