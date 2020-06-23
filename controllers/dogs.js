@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       return dog.name.toLowerCase() === nameFilter.toLowerCase()
     })
   }
-  console.log(dogs)
+  // console.log(dogs)
   res.render('dogs/index', { dogList: dogs })
 })
 
