@@ -1,0 +1,5 @@
+<a href="dogs/new">Add New Dog</a>
+<% myDogs.forEach(function(dog) { %>
+  <li><%= dog.name %> is famous for <%= dog.famousFor %> 
+    <img src="<%= dog.image %>"></li>
+<% }) %>

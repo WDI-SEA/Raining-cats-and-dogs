@@ -8,9 +8,9 @@ let app = express()
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
 app.use(layouts)
-// app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}))
 // app.use(methodOverride('_method'))
-// app.use('/dogs', require('./routers/dogs'))
+app.use('/dogs', require('./routers/dogs'))
 // app.use('/cats', require('./routers/cats'))
 
 app.get('/', (req, res) => {
