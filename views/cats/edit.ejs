@@ -1,1 +1,10 @@
 <h2>Hello Cats Edit</h2>
+<form method="POST" action="/dogs/<%= index %>/?_method=PUT">
+  <label for="name" >Name</label>
+  <input id="name" type="text" name="name" value="<%= data.name %>">
+  <labe for="image">Image Url</label>
+  <input id="image" type="text" name="type" value="<%= data.image %>">
+  <labe for="famousFor">Famous For</label>
+  <input id="famousFor" type="text" name="type" value="<%= data.famousFor %>">
+  <input type="submit">
+</form>

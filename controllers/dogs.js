@@ -23,34 +23,50 @@ router.get('/new', (request, response) => {
 
 //edit
 router.get('/edit/:index', (request, response) => {
-  console.log(request.params.index)
-  response.render('dogs/edit');
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+
+  response.render('dogs/edit', {  data: data[request.params.index], index: request.params.index });
 });
 
 //show route from index
 router.get('/:index', (request, response) => {
-  console.log(request.params.index)
-  response.render('dogs/show');
+  //console.log(request.params.index)
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+  let index = parseInt(request.params.index);
+  response.render('dogs/show', { data: data[index] });
 });
 
 //post form index
 router.post('/', (request, response) => {
-  console.log(req.body)
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+  data.push(request.body);
+  fs.writeFileSync('./dogs.json', JSON.stringify(data));
   response.redirect('/dogs');
 });
 
 //route for delete
 router.delete('/:index', (request, response) => {
-  console.log(request.params.index)
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+  data.splice(request.params.index, 1);
+  //write changes made to json
+  fs.writeFileSync('./dogs.json', JSON.stringify(data));
   response.redirect('/dogs');
 });
 
 //route for edits
 router.put('/:index', (request, response) => {
-  console.log(request.params.index)
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+  data[request.params.index].name = request.body.name;
+  data[request.params.index].image = request.body.image;
+  data[request.params.index].famousFor = request.body.famousFor;
+  // rewrite the file
+  fs.writeFileSync('./dogs.json', JSON.stringify(data));
   response.redirect('/dogs');
 });
-
-
 
 module.exports = router;

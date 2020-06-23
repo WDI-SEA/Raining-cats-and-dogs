@@ -1,1 +1,16 @@
 <h2>Hello Dogs Show</h2>
+<!-- lazy haha im tired obviously it will only ever be one -->
+<% data.forEach( (element, index) => { %>
+  <li> <img src="<%=element.image%>"/> 
+    <div id="index-image-form-holder-container">
+      <!-- query strings always start with a ? -->
+      <!-- here the query sting is ?_method=DELETE -->
+      <a href="/cats/edit/<%= index %>">Edit</a>
+      <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+      </form>
+      <h4><%= element.name %></h4> 
+      <p> <%= element.famousFor %> </p>
+    </div>
+  </li>
+<% }) %>
