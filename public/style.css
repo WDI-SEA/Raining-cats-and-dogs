@@ -5,6 +5,18 @@ html{
     color:white;
 }
 
+#new{
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+#filter{
+    text-align: center;
+    margin-top: 3em;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
 #title{
     text-align: center;
     font-size:47px;
@@ -22,6 +34,8 @@ a{
 }
 
 #navBar{
+    width:800px;
+    margin: 0 auto;
     display:flex;
     justify-content: space-evenly;
 }
@@ -38,6 +52,10 @@ a{
 
 #edit{
     margin-top:15px;
+}
+
+#edit:hover{
+    text-decoration: underline;
 }
 
 #delete {

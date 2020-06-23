@@ -1,5 +1,7 @@
-<form action="/dogs" method = "GET">
-    <label for="nameFilter">Filter By Name</label>
+<h2 id = "new">Just Dogs</h2>
+
+<form action="/dogs" method = "GET" id = "filter">
+    <label for="nameFilter">Filter By Name : </label>
     <input type="text" id = "nameFilter" name = "nameFilter">
     <input type="submit">
 </form>
@@ -18,7 +20,7 @@
             </div>
 
             <form action="/dogs/<%= index %>/?_method=DELETE" method = "POST">
-                <input type="submit" value = "Delete" id ="dete">
+                <input type="submit" value = "Delete" id ="delete">
             </form>
         </li>
     <% }) %>
