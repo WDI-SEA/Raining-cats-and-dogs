@@ -7,8 +7,8 @@
 <ul>
     <% myDogs.forEach((dogs, index) => { %>
     <div><img src="<%= dogs.image %>" /> </div>
-    <div>Name: <%= dogs.name %></div>
-    <div>Famous For: <%= dogs.famousFor %></div>
+    <div><h2>Name: </h2><%= dogs.name %></div>
+    <div><h2>Famous For: </h2><%= dogs.famousFor %></div>
     <div>
         <a href="/dogs/edit/<%= index %>">Edit</a>
         <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">

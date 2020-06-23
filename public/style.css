@@ -8,9 +8,15 @@ div {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    background: transparent;
+}
+
+h2 {
+    background: none;
 }
 
 img {
     width: 250px;
     height: 100%;
+    background: transparent;
 }
