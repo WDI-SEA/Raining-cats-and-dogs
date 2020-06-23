@@ -13,7 +13,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 // Method-Override will alow us to use PUt & DELETE Routes
 app.use('/cats', require('./controllers/cats'))
-// app.use('/dogs', require('./controllers/dogs'))
+app.use('/dogs', require('./controllers/dogs'))
 
 app.get('/', (req, res) => {
     res.render('home')

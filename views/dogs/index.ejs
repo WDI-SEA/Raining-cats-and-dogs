@@ -1,17 +1,17 @@
-<form action="/cats" method = "GET">
+<form action="/dogs" method = "GET">
     <label for="nameFilter">Filter By Name</label>
     <input type="text" id = "nameFilter" name = "nameFilter">
     <input type="submit">
 </form>
 
 <ul>
-    <% myCat.forEach((cat,index) => { %>
+    <% myDog.forEach((dog,index) => { %>
         <li>
-            <img src="<%= cat.image %>">
-            <p><%= cat.name %> is famous for <%= cat.famousFor %></p> 
+            <img src="<%= dog.image %>">
+            <p><%= dog.name %> is famous for <%= dog.famousFor %></p> 
             
-            <a href="/cats/edit/<%= index %>">Edit</a>
-            <form action="/cats/<%= index %>/?_method=DELETE" method = "POST">
+            <a href="/dogs/edit/<%= index %>">Edit</a>
+            <form action="/dogs/<%= index %>/?_method=DELETE" method = "POST">
                 <input type="submit" value = "Delete">
             </form>
         </li>
