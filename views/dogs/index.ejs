@@ -1,0 +1,16 @@
+<ul>
+    <% myDogs.forEach((dog, index) => { %>
+        <div class="tooltip">
+        <img id="dog-show" src="<%= dog.image %>"/>
+        <li><%= dog.name %> is famous for <%= dog.famousFor %> 
+            <span class='tooltiptext'></span>    
+        </form>
+            <form action="/dogs/<%= index %>/?_method=DELETE" method="POST">
+            <a id='editLink' href="/dogs/edit/<%= index %>">Edit</a>
+            <form id="deleteForm" action="/dogs/<%= index %>/?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+        </li>
+        </div>
+    <% }) %>
+</ul>  

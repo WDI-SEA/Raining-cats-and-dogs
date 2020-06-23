@@ -1,0 +1,21 @@
+<!-- <ul>
+<% for(let i = 0; i < myCats.length; i++) { %>
+        <li><a href="/cats/<%= i %>"><%=myCats[i].name%></a></li> 
+<% } %>
+</ul>  -->
+<ul>
+    <% myCats.forEach((cat, index) => { %>
+        <div class="tooltip">
+        <img id="cat-show" src="<%= cat.image %>"/>
+        <li><%= cat.name %> is famous for <%= cat.famousFor %> 
+            <span class='tooltiptext'></span>    
+        </form>
+            <form action="/cats/<%= index %>/?_method=DELETE" method="POST">
+            <a id='editLink' href="/cats/edit/<%= index %>">Edit</a>
+            <form id="deleteForm" action="/cats/<%= index %>/?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+        </li>
+        </div>
+    <% }) %>
+</ul>  

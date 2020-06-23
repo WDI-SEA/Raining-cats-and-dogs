@@ -1,0 +1,25 @@
+{
+  "name": "raining-cats-and-dogs",
+  "version": "1.0.0",
+  "description": "We've catalogued dinos, we've catalogued cryptids. We're making apps and taking names. Now it's time to take the names of some famous felines and preeminent puppers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJRJ29/Raining-cats-and-dogs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AJRJ29/Raining-cats-and-dogs/issues"
+  },
+  "homepage": "https://github.com/AJRJ29/Raining-cats-and-dogs#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0"
+  }
+}
