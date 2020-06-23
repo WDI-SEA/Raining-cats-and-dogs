@@ -1,7 +1,6 @@
 let express = require('express')
 let router = express.Router()
 let fs = require('fs')
-let methodOverride = require('method-override')
 
 router.get('/', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
@@ -14,48 +13,52 @@ router.get('/', (req, res) => {
         })
     }
 
-    res.render('cats/index', {myCats: catData})
+    res.render('cats/index', {myCat: catData})
 })
 
-router.get('/new', (req,res) => {
+router.get('/new', (req, res) => {
     res.render('cats/new')
 })
 
-router.get('/edits/:index', (req,res) => {
+router.get('/edit/:index', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
 
-    res.render('cats/edit', {cat: catData[req.params.index], catId: req.params.imdex})
+    res.render('cats/edit', {cat: catData[req.params.index], catId: req.params.index})
+
 })
 
-router.get('/:index',(req,res) => {
+router.get('/:index', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
     let catIndex = parseInt(req.params.index)
 
-    res.render('cats/show', {myCats: catData[catIndex]})
+    res.render('cats/show', {myCat: catData[catIndex]})
 })
 
-router.post('/',(req,res) => {
+router.post('/', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
 
     catData.push(req.body)
-    fs.readFileSync('./cats.json', JSON.stringify(catData))
 
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
+   
     res.redirect('/cats')
 })
 
-router.delete('/:index', (req,res) =>{
+router.delete('/:index', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
 
-    catData.splice(req.params.index,1)
+    catData.splice(req.params.index, 1)
 
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
+   
     res.redirect('/cats')
-})
+})  
 
-router.put('/:index', (req,res) => {
+router.put('/:index', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
 
@@ -63,8 +66,9 @@ router.put('/:index', (req,res) => {
     cats[req.params.index].image = req.body.image
     cats[req.params.index].famousFor = req.body.famousFor
 
-    fs.readFileSync('./cats.json', JSON.stringify(catData))
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
+   
     res.redirect('/cats')
 })
 
-module.exports = router;
+module.exports = router
