@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    list-style-type: none;
+    background-color: aqua;
+    font-family: 'Freckle Face', cursive;
+}
+
+#list {
+    list-style-type: none;
+}
