@@ -1,0 +1,10 @@
+<ul>
+    <% myCats.forEach((cat, index) => { %>
+        <li><%= cat.name %> <img src="<%= cat.image %>"></li>
+            <a href="/cats/edit/<%= index %>">Edit</a>
+            <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            </form>
+    <% }) %>
+
+</ul>
