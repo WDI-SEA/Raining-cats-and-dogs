@@ -18,11 +18,11 @@ router.get('/edit/:id', (req, res) => {
     res.render('cats/edit', {thisKitty});
 })
 router.get('/:id', (req, res) => {
-    let catData = fs.readFileSync('./cats.json');
-    catData = JSON.parse(catData);
-    //console.log("catData", JSON.stringify(catData));
-    //console.log("req.params", JSON.stringify(req.params));
-    let thisKitty = catData[req.params.id];
+    let cats = fs.readFileSync('./cats.json');
+    catData = JSON.parse(cats);
+    console.log("catData", JSON.stringify(catData));
+    console.log("req.params", req.params.id);
+    let thisKitty = catData[parseInt(req.params.id)];
     thisKitty.id = req.params.id;
     res.render('cats/show', {thisKitty});
 })
