@@ -8,11 +8,11 @@ routerTwo.get('/', (req, res) => {
   res.render('dogs/index', {myDogs: dogData})
 })
 
-routerTwo.get('/details', (req, res) => {
+routerTwo.get('/details/:idx', (req, res) => {
   let dogs = fs.readFileSync('./dogs.json')
   let dogData = JSON.parse(dogs)
-  console.log(dogData)
-  // res.render('dogs/details', {myDogs: dogData[dogIndex]})
+  let dogIndex = parseInt(req.params.idx)
+  res.render('dogs/details', {myDogs: dogData[dogIndex]})
 })
 
 routerTwo.get('/new', (req, res) => {
@@ -43,15 +43,12 @@ routerTwo.put('/:idx', (req, res) => {
   res.redirect('/dogs')
 })
 
-routerTwo.delete('/details', (req, rex) => {
+routerTwo.delete('/details/:idx', (req, rex) => {
   let dogs = fs.readFileSync('./dogs.json')
   dogs = JSON.parse(dogs)
   dogs.splice(req.params.idx, 1)
   fs.writeFileSync('./dogs.json', JSON.stringify(dogs))
   res.redirect('/dogs')
 })
-
-
-
 
 module.exports = routerTwo

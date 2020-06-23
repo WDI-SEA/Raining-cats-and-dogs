@@ -3,16 +3,16 @@ let routerOne = express.Router()
 let fs = require('fs')
 
 routerOne.get('/', (req, res) => {
-  let cats = fs.readFileSync('./dogs.json')
-  let catData = JSON.parse(cats)
-  res.render('dogs/index', {myCats: catData})
-})
-
-routerOne.get('/details', (req, res) => {
   let cats = fs.readFileSync('./cats.json')
   let catData = JSON.parse(cats)
-  console.log(catData)
-  // res.render('dogs/details', {myDogs: dogData[dogIndex]})
+  res.render('cats/index', {myCats: catData})
+})
+
+routerOne.get('/details/:idx', (req, res) => {
+  let cats = fs.readFileSync('./cats.json')
+  let catData = JSON.parse(cats)
+  let catIndex = parseInt(req.params.idx)
+  res.render('cats/details', {myCats: catData[catIndex]})
 })
 
 routerOne.get('/new', (req, res) => {
@@ -43,8 +43,8 @@ routerOne.put('/:idx', (req, res) => {
   res.redirect('/cats')
 })
 
-routerOne.delete('/details', (req, rex) => {
-  let dogs = fs.readFileSync('./cats.json')
+routerOne.delete('/details/:idx', (req, rex) => {
+  let cats = fs.readFileSync('./cats.json')
   cats = JSON.parse(cats)
   cats.splice(req.params.idx, 1)
   fs.writeFileSync('./cats.json', JSON.stringify(cats))

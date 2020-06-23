@@ -1,5 +1,8 @@
 <a href="dogs/new">Add New Dog</a>
-<% myDogs.forEach(function(dog) { %>
-  <li><%= dog.name %> is famous for <%= dog.famousFor %> 
-    <img src="<%= dog.image %>"></li>
+<% myDogs.forEach(function(dog, index) { %>
+  <li><a href="/dogs/details/<%= index %>"><%= dog.name %></a></li>
+    <a href="/dogs/edit/<%= index %>">Edit</a>
+    <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+      <input type="submit" value="Delete">
+    </form> 
 <% }) %>

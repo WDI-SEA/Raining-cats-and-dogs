@@ -1,4 +1,9 @@
 <a href="cats/new">Add New Cat</a>
-<% myCats.forEach(function(cat) { %>
-  <li><%= cat.name %> <%= cat.famousFor %> <%= cat.image %></li>
+<% myCats.forEach(function(cat, index) { %>
+  <li><a href="/cats/details/<%= index %>"><%= cat.name %></a></li>
+  <a href="/cats/edit/<%= index %>">Edit</a>
+  <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+    <input type="submit" value="Delete">
+  </form>  
 <% }) %>
+
