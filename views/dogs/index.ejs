@@ -1,0 +1,13 @@
+<div id = display-container>
+    <h1>These are some chill dogs</h1>
+    <% myDogs.forEach((dog, index) => { %>
+        <% console.log(dog.image) %>
+        <div> <%= dog.name %></div>
+        <div><img src="<%= dog.image %>"> </div>
+        <div> <%= dog.famousFor %> </div>
+        <a href="/dogs/edit/<%= index %>/">Edit</a>
+            <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            </form>
+   <% }) %>
+</div>
