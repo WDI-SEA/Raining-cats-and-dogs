@@ -1,0 +1,40 @@
+body {
+    background-color: #FFE53B;
+background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+}
+
+h1 {
+    text-align: center;
+}
+
+.nav {
+    background-color: rgba(195, 195, 204, 0.5);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.navBar {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+    text-align: center;
+    
+    
+}
+
+.filter {
+    text-align: center;
+}
+.list {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 5px;
+}
+
+.index {
+    margin: 0 5px 0 5px;
+    text-decoration: none;
+}

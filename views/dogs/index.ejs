@@ -1,4 +1,4 @@
-<form method="GET" action="/dogs">
+<form class="filter" method="GET" action="/dogs">
     <label for="nameFilter">Filter by name</label>
     <input id="nameFilter" type="text" name="nameFilter">
     <input type="submit">
@@ -6,9 +6,9 @@
 
 <ul>
     <% myDog.forEach((doggo, index) => { %>
-        <li><%= doggo.name %> is famous for <%= doggo.famousFor %> <img src="<%= doggo.image_url %>">
-            <a href="/dogs/edit/<%= index %>">Edit</a>
-            <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+        <li class="list"><%= doggo.name %> is famous for <%= doggo.famousFor %> <img src="<%= doggo.image %>">
+            <a class="index" href="/dogs/edit/<%= index %>">Edit</a>
+            <form class="delete" method="POST" action="/dogs/<%= index %>/?_method=DELETE">
                 <input type="submit" value="Delete">
             </form>
         </li>
