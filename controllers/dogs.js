@@ -10,6 +10,13 @@ router.get('/', (req, res) => {
 router.get('/new', (req,res) => {
     res.render('dogs/new');
 })
+router.get('/edit/:id', (req, res) => {
+    let doggieData = fs.readFileSync('dogs.json');
+    doggieData = JSON.parse(doggieData);
+    let thisPup = doggieData[req.params.id];
+    thisPup.id = req.params.id;
+    res.render('dogs/edit', {thisPup});
+})
 router.get('/:id', (req, res) => {
     let doggieData = fs.readFileSync('dogs.json');
     doggieData = JSON.parse(doggieData);
@@ -30,6 +37,13 @@ router.delete('/:id', (req, res) => {
     doggieData.splice(req.params.id, 1);
     fs.writeFileSync('dogs.json', JSON.stringify(doggieData));
     res.redirect('/dogs');
+})
+router.put('/edit/:id', (req, res) => {
+    let doggieData = fs.readFileSync('dogs.json');
+    doggieData = JSON.parse(doggieData);
+    doggieData[req.params.id] = {name: req.body.name, image: req.body.imgURL, famousFor: req.body.famousFor};
+    fs.writeFileSync('dogs.json', JSON.stringify(doggieData));
+    res.redirect(`/dogs/${req.params.id}`);
 })
 
 module.exports = router;

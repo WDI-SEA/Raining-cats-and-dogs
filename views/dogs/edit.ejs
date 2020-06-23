@@ -1,0 +1,10 @@
+<h2>Modify Dog</h2>
+<form method="POST" action="<%= `/dogs/edit/${thisPup.id}?_method=PUT` %>">
+    <label for='dogName'>Name:</label>
+    <input type='text' id='dogName' name='name' value="<%= thisPup.name %>">
+    <label for='dogImage'>Image URL:</label>
+    <input type='text' id='dogImage' name='imgURL' value="<%= thisPup.image %>">
+    <label for='dogFamous'>Famous for:</label>
+    <input type='text' id='dogFamous' name='famousFor' value="<%= thisPup.famousFor %>">
+    <input type='submit' value='Update Dog'>
+</form>

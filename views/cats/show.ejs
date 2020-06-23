@@ -2,6 +2,9 @@
 <img src="<%= thisKitty.image %>" alt='cat image'>
 <p>Name: <%= thisKitty.name %></p>
 <p>Famous for: <%= thisKitty.famousFor %></p>
+<form method="GET" action="<%= `/cats/edit/${thisKitty.id}` %>">
+    <input type='submit' value='Edit Cat'>
+</form>
 <form method="POST" action="<%= `/cats/${thisKitty.id}?_method=DELETE` %>">
     <input type='submit' value="Delete Cat">
 </form>

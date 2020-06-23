@@ -1,0 +1,11 @@
+<h2>Alter Cat</h2>
+<%= thisKitty %>
+<form method='POST' action="<%= `/cats/edit/${thisKitty.id}?_method=PUT` %>">
+    <label for='catName'>Name:</label>
+    <input type='text' id='catName' name='name' value="<%= thisKitty.name %>">
+    <label for='catImage'>Image URL:</label>
+    <input type='text' id='catImage' name='imgURL' value="<%= thisKitty.image %>">
+    <label for='catFamous'>Famous for:</label>
+    <input type='text' id='catFamous' name='famousFor' value="<%= thisKitty.famousFor %>">
+    <input type='submit' value='Update Cat'>
+</form>
