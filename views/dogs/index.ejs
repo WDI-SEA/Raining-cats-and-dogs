@@ -1,0 +1,10 @@
+<h2>Woo! Dogs!</h2>
+<button onclick=window.location.href="/dogs/new">Create Dog</button>
+<ul>
+    <% doggieData.forEach((thisDog, index) => { %>
+        <li>
+            <img class="small" src="<%= thisDog.image %>" alt="dog image">
+            <p>Name: <a href="<%= `/dogs/${index}` %>"><%= thisDog.name %></a></p>
+        </li>
+    <% }) %>
+</ul>

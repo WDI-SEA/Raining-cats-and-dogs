@@ -1,0 +1,7 @@
+<h2>Let's get to know <%= thisPup.name %></h2>
+<img src="<%= thisPup.image %>" alt="dog image">
+<p>Name: <%= thisPup.name %></p>
+<p>Famous for: <%= thisPup.famousFor %></p>
+<form method="POST" action="<%= `/dogs/${thisPup.id}?_method=DELETE` %>">
+    <input type='submit' value='Delete Dog'>
+</form>

@@ -1,0 +1,10 @@
+<h2>Ooh! Cats!</h2>
+<button onclick=window.location.href="/cats/new">Create New Cat</button>
+<ul>
+    <% catData.forEach((thisKitty, index) => { %>
+        <li>
+            <img class="small" src="<%= thisKitty.image %>" alt="image of cat">
+            <p>Name: <a href="<%= `/cats/${index}` %>"><%= thisKitty.name %></a></p>
+        </li>
+    <% }) %>
+</ul>

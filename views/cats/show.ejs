@@ -1,0 +1,7 @@
+<h2>A closer look at <%= thisKitty.name %></h2>
+<img src="<%= thisKitty.image %>" alt='cat image'>
+<p>Name: <%= thisKitty.name %></p>
+<p>Famous for: <%= thisKitty.famousFor %></p>
+<form method="POST" action="<%= `/cats/${thisKitty.id}?_method=DELETE` %>">
+    <input type='submit' value="Delete Cat">
+</form>
