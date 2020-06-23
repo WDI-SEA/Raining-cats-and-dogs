@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawgs Out Here!</title>
+</head>
+<body>
+    <form method="GET" action="/dogs">
+        <label for="nameFilter">Filter By Name</label>
+        <input id="nameFilter" type="text" name="nameFilter">
+        <input type="submit">
+    </form>
+
+    <ul>
+        <% myDogs.forEach((dog, index) => { %>
+            <li><%= dog.name %> is famous for <%= dog.famousFor %> 
+                <a href="/dogs/edit/<%= index %>">Edit</a>
+                <!-- Added an index parameter to allow for delete route overide -->
+                <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>
