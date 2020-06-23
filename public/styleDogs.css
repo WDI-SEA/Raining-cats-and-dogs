@@ -1,0 +1,12 @@
+body {
+  background: rgb(38,38,120);
+  background: linear-gradient(270deg, rgba(38,38,120,1) 5%, #0f839a 100%);
+}
+
+img {
+  max-height: 200px;
+}
+
+a {
+  color: aliceblue;
+}

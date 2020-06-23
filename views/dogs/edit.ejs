@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styleDogs.css">
+  <title>Edit the famous dogs pack</title>
+</head>
+<body>
+  <form action="/dogs/<%= dogId %>/?_method=PUT" method="POST">
+    <label for="dogName">Name:</label>
+    <input type="text" id="dogName" name="name" value="<%= dog.name %>"> 
+    <label for="dogImage">Image(url only):</label>
+    <input type="url" id="dogImage" name="image" value="<%= dog.image %>"> 
+    <label for="dogFamousFor">What is doggo famous for?</label>
+    <input type="text" id="dogFamousFor" name="famousFor" value="<%= dog.famousFor %>"> 
+    <input type="submit">
+  </form>
+  
+</body>
+</html>

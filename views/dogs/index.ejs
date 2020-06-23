@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The famous dog pack</title>
+  <link rel="stylesheet" href="/styleDogs.css">
+</head>
+
+<body>
+
+  <form method="GET" action="/dogs">
+    <label for="nameFilter">Filter by name</label>
+    <input type="text" id="nameFilter" name="nameFilter">
+    <input type="submit">
+  </form>
+
+  <ul>
+    <% dogList.forEach((dog, index) => { %>
+    <li>
+      <%= dog.name %> is famous for <%= dog.famousFor %>
+      <a href="/dogs/edit/<%= index %>">Edit</a>
+      <form action="/dogs/<%= index %>/?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+    </li>
+    <div>
+      <img src="<%= dog.image %>" alt="a picture of <%= dog.name %> ">
+    </div>
+    <% }) %>
+  </ul>
+
+  <h2><a href="/dogs/new">Add a new dog to the list of Famous Doggos</a></h2>
+
+
+</body>
+
+</html>

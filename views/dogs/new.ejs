@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a doggo to the pack</title>
+  <link rel="stylesheet" href="/styleDogs.css">
+</head>
+<body>
+
+  <form action="/dogs" method="POST">
+    <label for="dogName">Doggo's name:</label>
+    <input type="text" id="dogName" name="name">
+    <br>
+    <label for="dogImage">Image (only url):</label>
+    <input type="url" id="dogImage" name="image">
+    <br>
+    <label for="dogFamousFor">Doggo's claim to fame:</label>
+    <input type="text" id="dogFamousFor" name="famousFor">
+    <br>
+    <input type="submit" name="newDog" id="newDog">
+  </form>
+  
+</body>
+</html>
