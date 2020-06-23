@@ -20,7 +20,7 @@ app.use('/cats', require('./controllers/cats'));
 
 // starting to interact with our app 
 app.get('/', (req, res) => {
-    res.render('/')
+    res.render('home')
 })
 
 app.listen(3000, () => {

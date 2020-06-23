@@ -7,7 +7,8 @@
 <ul>
     <% myCat.forEach((cat, index) => { %>
     <!-- performing logic  -->
-    <li><%= cat.name %> is <%= cat.image %>
+    <li><%= cat.name %> is
+        <img src="<%= cat.image %>">
         <a href='/cats/edit/<%= index %>'>Edit</a>
         <!-- printing to the front end - need =s -->
         <form method="POST" action="/cats/<%= index %>/?_method=DELETE">

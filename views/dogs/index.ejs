@@ -7,7 +7,7 @@
 <ul>
     <% myDog.forEach((dog, index) => { %>
     <!-- performing logic  -->
-    <li><%= dog.name %> is <%= dog.image %>
+    <li><%= dog.name %> is <img src="<%= dog.image %>">
         <a href='/dogs/edit/<%= index %>'>Edit</a>
         <!-- printing to the front end - need =s -->
         <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
