@@ -1,0 +1,15 @@
+<form action="/cats" method="GET">
+    <label for="nameFilter"> Flter By Name</label>
+    <input type="text" id="nameFilter" name="nameFilter">
+    <input type="submit">
+</form>
+
+<ul> <% myCats.forEach((cats, index) => { %>
+    <%= cats.name %> is famous for <%= cats.famousFor %><div class="tooltip">
+        <img src="<%= cats.image %>" alt="<%= cats.name %>" class="cats-thumbnail">
+    </div>
+    <a href="/cats/edit<%= index %>">Edit</a>
+    <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+        <input type="submit" name="delete" value="delete"></form>
+    <% }) %>
+</ul>
