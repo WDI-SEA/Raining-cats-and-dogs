@@ -1,0 +1,9 @@
+<form method="POST" action="/cats/<%= catId %>/?_method=PUT">
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= cat.name %>" />
+  <label for="">Img URL</label>
+  <input type="text" name="image" value="<%= cat.image %>" />
+  <label for="">What's your cat known for?</label>
+  <input type="text" name="famousFor" value="<%= cat.famousFor %>" />
+  <input type="submit" />
+</form>

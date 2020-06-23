@@ -1,0 +1,27 @@
+ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+a {
+  color: #ffffff;
+}
+
+button {
+  display: inline-block;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.nav {
+  position: relative;
+  top: 20px;
+}
+
+.header {
+  background-color: rgb(85, 85, 85);
+  color: #ffffff;
+}
