@@ -1,17 +1,34 @@
 <div class="container">
-  <a href="/dogs/new"><button>Add a dog</button></a>
-  <ul>
+  <div class="row">
     <% myDogs.forEach((dog, index) => { %>
-    <li>
-      <img src="<%= dog.image %>" alt="" />
-      <br />
-      <%= dog.name %> is famous for <%= dog.famousFor %>
-      <a href="/dogs/edit/<%= index %>"><button>Edit</button></a>
-      <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
-        <input type="submit" value="Delete" />
-        <br />
-      </form>
-    </li>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= dog.image %>" />
+        </div>
+        <div class="card-content">
+          <h5 class="card-title"><%= dog.name %></h5>
+          <p><%= dog.name %> is famous for <%= dog.famousFor %></p>
+          <br />
+          <a href="/dogs/edit/<%= index %>"
+            ><input type="submit" value="Edit"
+          /></a>
+          <br /><br />
+          <form method="POST" action="/dogs/<%= index %>/?_method=DELETE">
+            <input type="submit" value="Delete" />
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
     <% }) %>
-  </ul>
+  </div>
+  <div class="center-align">
+    <a class="waves-effect waves-light btn-small right-align" href="/dogs/new"
+      ><i class="material-icons right">add</i>Add Dog</a
+    >
+    <a class="waves-effect waves-light btn-small" href="/"
+      ><i class="material-icons right">send</i>Back to home</a
+    >
+  </div>
 </div>

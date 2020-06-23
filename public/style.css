@@ -11,10 +11,10 @@ button {
   display: inline-block;
 }
 
-img {
+/* img {
   height: 100px;
   width: 100px;
-}
+} */
 
 .nav {
   position: relative;

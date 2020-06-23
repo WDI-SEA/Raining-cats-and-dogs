@@ -1,17 +1,34 @@
 <div class="container">
-  <a href="/cats/new"><button>Add a Cat</button></a>
-  <ul>
+  <div class="row">
     <% myCats.forEach((cat, index) => { %>
-    <li>
-      <img src="<%= cat.image %>" alt="" />
-      <br />
-      <%= cat.name %> is famous for <%= cat.famousFor %>
-      <a href="/cats/edit/<%= index %>"><button>Edit</button></a>
-      <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
-        <input type="submit" value="Delete" />
-        <br />
-      </form>
-    </li>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= cat.image %>" />
+        </div>
+        <div class="card-content">
+          <h5 class="card-title"><%= cat.name %></h5>
+          <p><%= cat.name %> is famous for <%= cat.famousFor %></p>
+          <br />
+          <a href="/cats/edit/<%= index %>"
+            ><input type="submit" value="Edit"
+          /></a>
+          <br /><br />
+          <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+            <input type="submit" value="Delete" />
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
     <% }) %>
-  </ul>
+  </div>
+  <div class="center-align">
+    <a class="waves-effect waves-light btn-small right-align" href="/cats/new"
+      ><i class="material-icons right">add</i>Add Cat</a
+    >
+    <a class="waves-effect waves-light btn-small" href="/"
+      ><i class="material-icons right">send</i>Back to home</a
+    >
+  </div>
 </div>
