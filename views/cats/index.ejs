@@ -7,9 +7,21 @@
 </head>
 <body>
     <h2> Cats are the greatest! Wouldn't you agree? </h2>
+    <form method="GET" action="/cats">
+        <label for="nameFilter">Filter By Name:</label>
+        <input id="nameFilter" type="text" name="nameFilter">
+        <input type="submit">
+    </form>
+    
     <ul>
-        <% myCats.forEach((cats) => { %>
-        <li> <%= cats.name %> is famous for <%= cats.famousFor %> </li>
+        <% myCats.forEach((cats, index) => { %>
+        <li> <%= cats.name %> is famous for <%= cats.famousFor %> 
+            <a href="/cats/edit/<%= index %>">Edit</a>
+
+            <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            </form>
+        </li>
         <% }) %>
     </ul>
 </body>
