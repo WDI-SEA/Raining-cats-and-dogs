@@ -5,3 +5,60 @@
 body {
     text-align: center;
 }
+
+nav {
+    margin: 0;
+    margin-bottom: 3em;
+    border-bottom: 2px solid #000;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+form {
+    display: inline-block;
+}
+
+.new-entry {
+    display: block;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto 50px;
+    background-color: #cfcfcf;
+    border: 1px solid #000;
+    line-height: 50px;
+    color: #fff;
+}
+
+.edit {
+    font-size: .75em;
+    color: #7f7f7f;
+}
+
+
+.new-entry:hover {
+    background-color: #fff;
+    color: #cfcfcf;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline #f00;
+}
+a:active {
+    text-decoration: underline #f00;
+}
+a:visited {
+    color: #000;
+}

@@ -1,0 +1,19 @@
+<div>
+    <a class="new-entry" href="/dogs/new">add a dog</a>
+</div>
+
+
+<ul>
+    <% dogsBio.forEach((dog, index) => {  %>
+        <li>
+            <%= dog.name %> is known for <%= dog.knownFor %> 
+            <a class="edit" href="/dogs/edit/<%= index %>">(edit)</a>
+            <div>
+                <img src="<%= dog.image %>">
+            </div>
+            <div>
+                
+            </div>
+        </li>
+    <% }) %>
+</ul>

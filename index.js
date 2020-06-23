@@ -8,16 +8,16 @@ let methodOverride = require('method-override')
 let port = 8000
 let app = express()
 
-//COLLECTIONS
+//VIEW ENGINE
 app.set('view engine', 'ejs')
 
 //MIDDLEWARES
-app.use('/cats', require('./controllers/cats'))
-app.use('/dogs', require('./controllers/dogs'))
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({extended: false}))
 app.use(layouts)
 app.use(methodOverride('_method'))
+app.use('/cats', require('./controllers/cats'))
+app.use('/dogs', require('./controllers/dogs'))
 
 //ROUTES
 app.get('/', (req, res) => {
