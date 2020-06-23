@@ -1,0 +1,17 @@
+<form method="GET" action="/cats">
+    <label for="nameFilter">Filter by name</label>
+    <input id="nameFilter" type="text" name="nameFilter">
+    <input type="submit">
+</form>
+
+<ul>
+    <% myCat.forEach((cat, index) => { %>
+    <!-- performing logic  -->
+    <li><%= cat.name %> is <%= cat.image %>
+        <a href='/cats/edit/<%= index %>'>Edit</a>
+        <!-- printing to the front end - need =s -->
+        <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+            <input type="submit" value="DELETE">
+            <%  }) %>
+    </li>
+</ul>
