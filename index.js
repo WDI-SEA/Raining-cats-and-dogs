@@ -38,19 +38,19 @@ app.get('/cats/new', (req,res) => {
     res.render('cats/new')
 })
 
-app.get('/cats/edit:/index', (req,res) => {
+app.get('/cats/edit/:index', (req,res) => {
     let cats = fs.readFileSync('./cats.json')
-    catData = JSON.parse(cats)
+    let catData = JSON.parse(cats)
 
     res.render('cats/edit', {cat: cats[req.params.index], catId: req.params.index})
 })
 
 app.get('/cats/:index', (req,res) => {
     let cats = fs.readFileSync('./cats.json')
-     cats = JSON.parse(cats)
+    let catData = JSON.parse(cats)
     let catIndex = parseInt(req.params.index)
 
-    res.render('cats/show', {myCats: catData[catIndex]})
+    res.render('cats/show', {myCat: catData[catIndex]})
 })
 
 app.post('/cats', (req,res) => {
@@ -79,7 +79,7 @@ app.put('/cats/:index', (req, res) => {
     cats = JSON.parse(cats)
 
     cats[req.params.index].name = req.body.name
-    cats[req.params.index].img = req.body.img
+    cats[req.params.index].image = req.body.image
     cats[req.params.index].famousFor = req.body.famousFor
 
     fs.writeFileSync('./cats.json',JSON.stringify(cats))
