@@ -1,0 +1,8 @@
+<img class="detail" src="<%= dog.image %>" alt="Image of <%= dog.name %>">
+    <h3><%= dog.name %></h3>
+    <p>Famous for <%= dog.famousFor %></p>
+    <a href="/dogs/edit/<%= dogId %>">Edit</a>
+    <form method="POST" action="/dogs/<%= dogId %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/dogs">Back</a>

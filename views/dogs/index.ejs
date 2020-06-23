@@ -1,0 +1,10 @@
+<h2>Preeminent Puppers</h2>
+<div class="card-container">
+    <% dogs.forEach((dog, index) => { %>
+        <div class="card">
+            <img class="thumbnail" src="<%= dog.image %>" alt="Image of <%= dog.name %>">
+            <h3><a href="/dogs/<%= index %>"><%= dog.name %></a></h3>
+            <p>Famous for <%= dog.famousFor %></p>
+        </div>
+    <% }) %>
+</div>

@@ -1,0 +1,8 @@
+<img class="detail" src="<%= cat.image %>" alt="Image of <%= cat.name %>">
+    <h3><%= cat.name %></h3>
+    <p>Famous for <%= cat.famousFor %></p>
+    <a href="/cats/edit/<%= catId %>">Edit</a>
+    <form method="POST" action="/cats/<%= catId %>/?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/cats">Back</a>

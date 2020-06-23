@@ -1,0 +1,10 @@
+<h2>Famous Felines</h2>
+<div class="card-container">
+    <% cats.forEach((cat, index) => { %>
+        <div class="card">
+            <img class="thumbnail" src="<%= cat.image %>" alt="Image of <%= cat.name %>">
+            <h3><a href="/cats/<%= index %>"><%= cat.name %></a></h3>
+            <p>Famous for <%= cat.famousFor %></p>
+        </div>
+    <% }) %>
+</div>
