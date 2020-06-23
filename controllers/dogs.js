@@ -59,7 +59,8 @@ router.put('/:idx', (req, res) => {
     let dogs = fs.readFileSync('./dogs.json');
     dogs = JSON.parse(dogs);
     dogs[req.params.idx].name = req.body.name;
-    dogs[req.params.idx].famousFor = req.body.famousFor
+    dogs[req.params.idx].famousFor = req.body.famousFor;
+    dogs[req.params.idx].image = req.body.image;
 
     fs.writeFileSync('./dogs.json', JSON.stringify(dogs))
 
