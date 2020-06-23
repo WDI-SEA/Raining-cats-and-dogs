@@ -1,13 +1,13 @@
-*{
+* {
     margin: 0px auto;
     text-align: center;
 }
 
 div {
-  
+
     width: 30vw;
     font-size: 15px;
-  
+
 }
 
 img {
@@ -15,12 +15,14 @@ img {
     max-height: 100%;
     width: auto;
     height: auto;
-   
+
 }
+
 input {
     padding: 5px;
 }
-#nav-wrapper{
+
+#nav-wrapper {
     width: 90vw;
     height: 50px;
     border: none;
@@ -31,6 +33,7 @@ input {
     padding: 10px;
     font-size: 15px;
 }
-#nav{
+
+#nav {
     border: none;
 }

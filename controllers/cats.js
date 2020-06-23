@@ -1,5 +1,7 @@
 let express = require('express')
-const { response } = require('express')
+const {
+    response
+} = require('express')
 let router = express.Router()
 let fs = require('fs')
 
@@ -8,10 +10,10 @@ router.get("/", (req, res) => {
     let catData = JSON.parse(cats)
     console.log(catData)
     let nameFilter = req.query.nameFilter
-    
-    
+
+
     res.render('./cats/index', {
-        mycats : catData
+        mycats: catData
     })
 })
 router.get('/new', (req, res) => {
