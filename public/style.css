@@ -2,3 +2,12 @@ body {
     background-color: grey;
     color: antiquewhite
 }
+
+img {
+  width: 150px;
+  height: autoß;
+}
+
+#index-image-form-holder-container {
+  width: 150px;
+}

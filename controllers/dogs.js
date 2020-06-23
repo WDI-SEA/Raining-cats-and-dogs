@@ -1,12 +1,19 @@
-let express = require('express')
-let router = express.Router()
+let express = require('express');
+let router = express.Router();
 let fs = require('fs');
-const { captureRejectionSymbol } = require('events');
-const { request } = require('http');
 
 //index route
 router.get('/', (request, response) => {
-  response.render('dogs/index');
+  let data = fs.readFileSync('./dogs.json');
+  data = JSON.parse(data);
+  let nameFilter = request.query.nameFilter;
+  if(nameFilter) {
+
+    data = data.filter(element => {
+      return element.name.toLowerCase() === nameFilter.toLowerCase();
+    })
+  }
+  response.render('dogs/index', { data: data } );
 });
 
 //new
@@ -29,20 +36,21 @@ router.get('/:index', (request, response) => {
 //post form index
 router.post('/', (request, response) => {
   console.log(req.body)
-  response.redirect('/dogs')
+  response.redirect('/dogs');
 });
 
 //route for delete
-router.delete('/:index', (req, res) => {
-  console.log(request.params.body)
-  request.redirect('/dogs')
+router.delete('/:index', (request, response) => {
+  console.log(request.params.index)
+  response.redirect('/dogs');
 });
 
 //route for edits
-router.put('/:index', (req, res) => {
-  console.log(request.params.body)
-  request.redirect('/dogs')
+router.put('/:index', (request, response) => {
+  console.log(request.params.index)
+  response.redirect('/dogs');
 });
 
 
-module.exports = router
+
+module.exports = router;

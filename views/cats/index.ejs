@@ -1,1 +1,24 @@
 <h2>Hello Cats Index</h2>
+<!-- GET for search -->
+<form method="GET" action="/cats">
+  <label for="nameFilter">Filter by Name</label>
+  <input id="nameFilter" type="text" name="nameFilter">
+  <input type="submit">
+</form>
+
+<ul>
+  <% data.forEach( (element, index) => { %>
+    <li> <img src="<%=element.image%>"/> 
+      <div id="index-image-form-holder-container">
+        <!-- query strings always start with a ? -->
+        <!-- here the query sting is ?_method=DELETE -->
+        <a href="/cats/edit/<%= index %>">Edit</a>
+        <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+          <input type="submit" value="Delete">
+        </form>
+        <h4><%= element.name %></h4> 
+        <p> <%= element.famousFor %> </p>
+      </div>
+    </li>
+  <% }) %>
+</ul>
