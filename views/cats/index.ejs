@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats Page</title>
+</head>
+<body>
+    <h2> Cats are the greatest! Wouldn't you agree? </h2>
+    <ul>
+        <% myCats.forEach((cats) => { %>
+        <li> <%= cats.name %> is famous for <%= cats.famousFor %> </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
