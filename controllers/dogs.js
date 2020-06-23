@@ -11,6 +11,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let dogs = fs.readFileSync('./dogs.json')
     dogs = JSON.parse(dogs)
+    if (!req.body.image) {
+        req.body.image = 'https://i.ytimg.com/vi/HSUQDPcm2Pc/maxresdefault.jpg'
+    }
     dogs.push(req.body)
     fs.writeFileSync('./dogs.json', JSON.stringify(dogs))
     res.redirect('/dogs')
