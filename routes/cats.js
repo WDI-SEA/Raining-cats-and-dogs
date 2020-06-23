@@ -38,9 +38,33 @@ router.get('/:idx', (req, res) => {
 router.post('/', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
-    
-    cats.push(req.body)
-    fs.writeFileSync('./cats.json', JSON.stringify(cats))
+
+    catData.push(req.body)
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
+   
+    res.redirect('/cats')
+})
+
+router.delete('/:idx', (req, res) => {
+    let cats = fs.readFileSync('./cats.json')
+    let catData = JSON.parse(cats)
+
+    catData.splice(req.params.idx, 1)
+
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
+   
+    res.redirect('/cats')
+})  
+
+router.put('/:idx', (req, res) => {
+    let dogs = fs.readFileSync('./dogs.json')
+    let dogData = JSON.parse(dogs)
+
+    cats[req.params.idx].name = req.body.name
+    cats[req.params.idx].image = req.body.image
+    cats[req.params.idx].famousFor = req.body.famousFor
+
+    fs.writeFileSync('./cats.json', JSON.stringify(catData))
    
     res.redirect('/cats')
 })
