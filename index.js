@@ -16,7 +16,19 @@ app.use('/cats', require('./controllers/cats'))
 app.use('/dogs', require('./controllers/dogs'))
 
 app.get('/', (req, res) => {
-    res.render('home')
+    let cats = fs.readFileSync('./cats.json')
+    let catData = JSON.parse(cats)
+    let nameFilter = req.query.nameFilter
+
+    let dogs = fs.readFileSync('./dogs.json')
+    let dogData = JSON.parse(dogs)
+
+    if(nameFilter) {
+        dogData = dogData.filter(dog => {
+            return dog.name.toLowerCase() === nameFilter.toLowerCase()
+        })
+    }
+    res.render('home', {myCat: catData, myDog: dogData})
 })
 
 

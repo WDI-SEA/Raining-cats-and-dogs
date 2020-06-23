@@ -6,13 +6,19 @@
 
 <ul>
     <% myDog.forEach((dog,index) => { %>
-        <li>
+        <li id = "card">
             <img src="<%= dog.image %>">
             <p><%= dog.name %> is famous for <%= dog.famousFor %></p> 
+
+            <br>
+            <hr>
             
-            <a href="/dogs/edit/<%= index %>">Edit</a>
+            <div id ="bottomText">
+                <a id = "edit" href="/dogs/edit/<%= index %>">Edit</a>
+            </div>
+
             <form action="/dogs/<%= index %>/?_method=DELETE" method = "POST">
-                <input type="submit" value = "Delete">
+                <input type="submit" value = "Delete" id ="dete">
             </form>
         </li>
     <% }) %>

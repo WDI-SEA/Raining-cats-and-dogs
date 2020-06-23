@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     let nameFilter = req.query.nameFilter
 
     if(nameFilter) {
-        dogData = dogData.filter(cat => {
-            return cat.name.toLowerCase() === nameFilter.toLowerCase()
+        dogData = dogData.filter(dog => {
+            return dog.name.toLowerCase() === nameFilter.toLowerCase()
         })
     }
 
@@ -17,14 +17,24 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('dogs/new')
+    let dogs = fs.readFileSync('./dogs.json')
+    let dogData = JSON.parse(dogs)
+    let nameFilter = req.query.nameFilter
+
+    if(nameFilter) {
+        dogData = dogData.filter(dog => {
+            return dog.name.toLowerCase() === nameFilter.toLowerCase()
+        })
+    }
+
+    res.render('dogs/new', {myDog: dogData})
 })
 
 router.get('/edit/:index', (req, res) => {
     let dogs = fs.readFileSync('./dogs.json')
     let dogData = JSON.parse(dogs)
 
-    res.render('dogs/edit', {cat: dogData[req.params.index], catId: req.params.index})
+    res.render('dogs/edit', {dog: dogData[req.params.index], dogId: req.params.index})
 
 })
 

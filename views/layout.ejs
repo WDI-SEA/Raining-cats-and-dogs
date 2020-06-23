@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <ul>
-        <a href="/">Home</a>
-        <a href="/cats">Show Cats</a>
-        <a href="/dogs">Show dogs</a>
-        <a href="/cats/new">New Cat</a>
-        <a href="/dogs/new">New Dog</a>
+
+    <h1 id = "title">Cats & Dogs</h1>
+
+    <ul id ="navBar">
+        <li class = "bar"><a  href="/">Home</a></li>
+        <li class = "bar"><a  href="/cats">Show Cats</a></li>
+        <li class = "bar"><a  href="/dogs">Show Dogs</a></li>
+        <li class = "bar"><a  href="/cats/new">New Cat</a></li>
+        <li class = "bar"><a  href="/dogs/new">New Dog</a></li>
     </ul>
     
     <%- body %>

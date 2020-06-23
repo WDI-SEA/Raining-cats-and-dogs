@@ -17,7 +17,17 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('cats/new')
+    let cats = fs.readFileSync('./cats.json')
+    let catData = JSON.parse(cats)
+    let nameFilter = req.query.nameFilter
+
+    if(nameFilter) {
+        catData = catData.filter(cat => {
+            return cat.name.toLowerCase() === nameFilter.toLowerCase()
+        })
+    }
+
+    res.render('cats/new', {myCat: catData})
 })
 
 router.get('/edit/:index', (req, res) => {
