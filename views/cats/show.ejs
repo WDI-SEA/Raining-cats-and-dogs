@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styleCats.css">
+  <title>Cat show!</title>
+</head>
+<body>
+  <h1>This is <%= myCat.name %> </h1>
+  <br>
+  <h1><%= myCat.name %> is famous for <%= myCat.famousFor %>  </h1>
+  <br>
+  <h1>Here is a cool pic of <%= myCat.name %> </h1>
+  <br>
+  <div id='catImage'>
+    <img src="<%= myCat.image %>" alt="A cool picture of a cool cat.">
+  </div>
+</body>
+</html>

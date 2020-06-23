@@ -4,9 +4,13 @@ body {
 }
 
 img {
-  max-height: 200px;
+  /* max-height: 200px; */
 }
 
 a {
   color: aliceblue;
+}
+
+.indexImage {
+  max-height: 200px;
 }

@@ -11,7 +11,7 @@ app.use(layouts)
 app.use(express.urlencoded({ extended: false}))
 app.use(methodOverride('_method'))
 app.use('/dogs', require('./controllers/dogs'))
-// app.use('/cats', require('./controllers/cats'))
+app.use('/cats', require('./controllers/cats'))
 
 app.get('/', (req,res) => {
   res.render('home')

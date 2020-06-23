@@ -1,17 +1,40 @@
-<form method="GET" action="/cats">
-  <label for="nameFilter">Filter by name</label>
-  <input type="text" id="nameFilter" name="nameFilter">
-  <input type="submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
 
-<ul>
-  <% catList.forEach((cat, index) => { %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famous cats of history and fiction</title>
+  <link rel="stylesheet" href="/styleCats.css">
+</head>
+
+<body>
+
+  <form method="GET" action="/cats">
+    <label for="nameFilter">Filter by name</label>
+    <input type="text" id="nameFilter" name="nameFilter">
+    <input type="submit">
+  </form>
+
+  <ul>
+    <% catList.forEach((cat, index) => { %>
     <li>
-      <%= cat.name %> is <%= cat.type %>
-      <a href="/cats/edit/<%= index %>">Edit</a>
-      <form action="/cats/<%= index %>/?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-      </form>
+      <%= cat.name %> is famous for <%= cat.famousFor %>
+      <a href="/cats/edit/<%= index %>">Edit/Delete</a>
+      
     </li>
-  <% }) %> 
-</ul>
+    <div>
+      <img class="indexImageDogs" src="<%= cat.image %>" alt="a picture of <%= cat.name %> ">
+    </div>
+    <form action="/cats/<%= index %>">
+      <input type="submit" value="See the big picture">
+    </form>
+    <% }) %>
+  </ul>
+
+  <h2><a href="/cats/new">Add a new cat to the list of Famous Cattes</a></h2>
+
+
+</body>
+
+</html>

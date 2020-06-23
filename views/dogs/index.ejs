@@ -20,14 +20,15 @@
     <% dogList.forEach((dog, index) => { %>
     <li>
       <%= dog.name %> is famous for <%= dog.famousFor %>
-      <a href="/dogs/edit/<%= index %>">Edit</a>
-      <form action="/dogs/<%= index %>/?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-      </form>
+      <a href="/dogs/edit/<%= index %>">Edit/Delete</a>
+      
     </li>
     <div>
-      <img src="<%= dog.image %>" alt="a picture of <%= dog.name %> ">
+      <img class="indexImageDogs" src="<%= dog.image %>" alt="a picture of <%= dog.name %> ">
     </div>
+    <form action="/dogs/<%= index %>">
+      <input type="submit" value="See the big picture">
+    </form>
     <% }) %>
   </ul>
 

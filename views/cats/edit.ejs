@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styleCats.css">
+  <title>It's cats</title>
+</head>
+<body>
+  <form action="/cats/<%= catId %>/?_method=PUT" method="POST">
+    <label for="catName">Name:</label>
+    <input type="text" id="catName" name="name" value="<%= cat.name %>"> 
+    <label for="catImage">Image(url only):</label>
+    <input type="url" id="catImage" name="image" value="<%= cat.image %>"> 
+    <label for="catFamousFor">What is catte famous for?</label>
+    <input type="text" id="catFamousFor" name="famousFor" value="<%= cat.famousFor %>"> 
+    <input type="submit">
+  </form>
+  <form action="/cats/<%= catId %>/?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+  </form>
+</body>
+</html>
