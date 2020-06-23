@@ -1,0 +1,16 @@
+* {
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    font-family: 'Oswald', Helvetica, sans-serif;
+}
+
+div {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 250px;
+    height: 100%;
+}
