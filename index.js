@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.get('/cats', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
-    catData = JSON.parse(cats)
+    let catData = JSON.parse(cats)
     let nameFilter = req.query.nameFilter
 
     if (nameFilter) {
@@ -47,10 +47,46 @@ app.get('/cats/edit:/index', (req,res) => {
 
 app.get('/cats/:index', (req,res) => {
     let cats = fs.readFileSync('./cats.json')
-    catData = JSON.parse(cats)
+     cats = JSON.parse(cats)
     let catIndex = parseInt(req.params.index)
 
     res.render('cats/show', {myCats: catData[catIndex]})
 })
+
+app.post('/cats', (req,res) => {
+    let cats = fs.readFileSync('./cats.json')
+    cats = JSON.parse(cats)
+
+    cats.push(req.body)
+
+    fs.writeFileSync('./cats.json',JSON.stringify(cats))
+
+    res.redirect('/cats')
+})
+
+app.delete('/cats/:index', (req,res) => {
+    let cats = fs.readFileSync('./cats.json')
+    cats = JSON.parse(cats)
+
+    cats.splice(req.params.index,1)
+
+    fs.writeFileSync('./cats.json', JSON.stringify(cats))
+    res.redirect('/cats')
+})
+
+app.put('/cats/:index', (req, res) => {
+    let cats = fs.readFileSync('./cats.json')
+    cats = JSON.parse(cats)
+
+    cats[req.params.index].name = req.body.name
+    cats[req.params.index].img = req.body.img
+    cats[req.params.index].famousFor = req.body.famousFor
+
+    fs.writeFileSync('./cats.json',JSON.stringify(cats))
+
+    res.redirect('/cats')
+})
+
+
 
 app.listen(8000);
