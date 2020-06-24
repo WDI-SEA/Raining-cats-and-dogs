@@ -1,0 +1,9 @@
+<form method="POST" action="/cats/<%= catId %>/?_method=PUT">
+    <label for="catName">Name</label>
+    <input id="catName" type="text" name="name" value="<%= cat.name %>">
+    <label for="catType">Type</label>
+    <input id="catType" type="text" name="type" value="<%= cat.type %>">
+    <label for="catFamousFor">FamousFor</label>
+    <input id="catFamousFor" type="text" name="famousFor" value="<%= cat.famousFor %>">
+    <input type="submit">
+</form>
