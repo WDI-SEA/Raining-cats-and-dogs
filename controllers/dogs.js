@@ -2,13 +2,17 @@ let express = require('express')
 let router = express.Router()
 let fs = require('fs')
 
+//render = file paths from view folders
+//redirect = goes to a URL
+//res.send sends an object
+
 // Index
 router.get("/", (req, res) => {
     let dogs = fs.readFileSync("./dogs.json");
 
     let dogData = JSON.parse(dogs);
 
-    let nameFiler = req.query.nameFilter
+    let nameFilter = req.query.nameFilter
 
     if(nameFilter){
         dogData = dogData.filter(dog => {
@@ -17,6 +21,14 @@ router.get("/", (req, res) => {
     }
     res.render("dogs/index", {myDogs: dogData})
 })
+
+
+// Add
+// Get route to view new dog form
+router.get("/new", (req, res) => {
+    res.render("dogs/new")
+})
+
 
 // Show/Details
 router.get("/:idx", (req, res) => {
@@ -27,11 +39,6 @@ router.get("/:idx", (req, res) => {
     res.render("dogs/show", {myDog: dogData[dogIndex]})
 })
 
-// Add
-// Get route to view new dog form
-router.get("/new", (req, res) => {
-    res.render("dogs/new")
-})
 
 // Create
 router.post("/", (req, res) => {
@@ -61,9 +68,10 @@ router.put("/:idx", (req, res) => {
     // Select name & type of dog selected by its ID, then reassign name & type
     dogs[req.params.idx].name = req.body.name
     dogs[req.params.idx].type = req.body.type
+    dogs[req.params.idx].image = req.body.image
     // rewrite the file
     fs.writeFileSync("./dogs.json", JSON.stringify(dogs))
-    // redirect to main page
+    // redirect to main page - this is a URL
     res.redirect("/dogs")
 })
 

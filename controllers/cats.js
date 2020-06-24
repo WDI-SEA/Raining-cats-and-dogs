@@ -3,12 +3,13 @@ let router = express.Router()
 let fs = require('fs')
 
 // Index
+//this means that when we go to the url bar this is the path we want to go to
 router.get("/", (req, res) => {
     let cats = fs.readFileSync("./cats.json");
 
     let catData = JSON.parse(cats);
 
-    let nameFiler = req.query.nameFilter
+    let nameFilter = req.query.nameFilter
 
     if(nameFilter){
         catData = catData.filter(cat => {
@@ -18,23 +19,30 @@ router.get("/", (req, res) => {
     res.render("cats/index", {myCats: catData})
 })
 
+// Add
+//treat this route as exclusive
+//either hit THIS route OR the route below
+// Get route to view new cats form
+router.get("/new", (req, res) => {
+    res.render("cats/new")
+})
+
 // Show/Details
 // Get route to view *ONE* cat's information
+//it does not matter what the name is for idx
+//idx is a parameter - that's why we call params for our request
 router.get('/:idx', (req, res) => {
     let cats = fs.readFileSync('./cats.json')
     let catData = JSON.parse(cats)
     let catIndex = parseInt(req.params.idx)
-
+    console.log(req.params.idx + "is my id")
     res.render('cats/show', {myCat: catData[catIndex]})
 })
 
-// Add
-// Get route to view new cats form
-router.get("/new", (req, res) => {
-    res.render('cats/new')
-})
-
 // Create
+//for post routes, it is a post route path, it is not physical to the user
+//not a browser URL, not a file path
+//just a post route identifier
 router.post("/", (req, res) => {
     // read cats file
     let cats = fs.readFileSync("./cats.json")
@@ -56,12 +64,14 @@ router.get("/edit/:idx", (req, res) => {
 })
 
 // Update
+//put is also a unique thing where it is not a browser URL or a file path
 router.put("/:idx", (req, res) => {
     let cats = fs.readFileSync("./cats.json")
     cats = JSON.parse(cats)
     // Select name & type of cat selected by its ID, then reassign name & type
     cats[req.params.idx].name = req.body.name
     cats[req.params.idx].type = req.body.type
+    cats[req.params.idx].image = req.body.image
     // rewrite the file
     fs.writeFileSync("./cats.json", JSON.stringify(cats))
     // redirect to main page
@@ -69,6 +79,8 @@ router.put("/:idx", (req, res) => {
 })
 
 // Destroy
+//it is possible to have mutltiple methods with the same action
+//you cannot have duplicate actions for the same method
 router.delete("/:idx", (req, res) => {
     let cats = fs.readFileSync("./cats.json")
     cats = JSON.parse(cats)
