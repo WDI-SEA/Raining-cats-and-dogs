@@ -1,0 +1,17 @@
+<div class="container">
+    <a href="/cats/new"><button>Add a Cat</button></a>
+    <ul>
+        <% myCats.forEach((cat, index) => { %>
+        <li>
+            <img src="<%= cat.image %>" alt="">
+            <br>
+            <%= cat.name %> is famous for <%= cat.famousFor %>
+            <a href="/cats/edit/<%= index %>"><button>Edit</button></a>
+            <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+                <br>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+</div>
