@@ -5,7 +5,7 @@ let fs = require('fs');
 
 // Create GET route to index
 router.get('/', (req, res) => {
-  let cats = fs.readFileSync('./cat.json');
+  let cats = fs.readFileSync('./cats.json');
   let catsData = JSON.parse(cats);
   let nameFilter= req.query.nameFilter;
   // Add filter to form
@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
 
 // Create GET route to edit
 router.get('/edit/:idx', (req, res) => {
-  let cats = fs.readFileSync('./cats,json')
+  let cats = fs.readFileSync('./cats.json')
   cats = JSON.parse(cats);
 
   res.render('cats/edit', {cats: cats[req.params.idx], catId: req.params.idx});
@@ -34,7 +34,7 @@ router.get('/:idx', (req, res) => {
   let cats = fs.readFileSync('./cats.json');
   let catData = JSON.parse(cats);
   let catIndex = parseInt(req.params.idx);
-
+  // Index will be a string so have to parse int into a number
   res.render('cats/show', {myCat: catData[catIndex]});
 })
 
@@ -47,7 +47,7 @@ router.post('/', (req,res) => {
 
   fs.writeFileSync('./cats.json', JSON.stringify(cats));
 
-  res.resdirect('/cats');
+  res.redirect('/cats');
 })
 
 // Create DELETE route 

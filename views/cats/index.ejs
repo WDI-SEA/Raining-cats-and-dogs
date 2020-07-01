@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats Page</title>
+</head>
+<body>
+    <h2>Here are all our favorite cats!</h2>
+    <form method="GET" action="/cats">
+        <label for="nameFilter">Filter By Name:</label>
+        <input id="nameFilter" type="text" name="nameFilter">
+        <input type="submit">
+    </form>
+    <ul>
+        <% myCats.forEach((cat, index) => { %>
+        <li> <%= cat.name %> is famous for <%= cat.famousFor %>
+            <img src="<%= cat.image %>"> 
+            <a href="/cats/edit/<%= index %>">Edit</a>
+            <form method="POST" action="/cats/<%= index %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+</html> 
