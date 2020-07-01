@@ -22,6 +22,13 @@ router.get('/new', (req, res) => {
   res.render('cats/new')
 })
 
+// Create GET route to edit
+router.get('/edit/:idx', (req, res) => {
+  let cats = fs.readFileSync('./cats,json')
+  cats = JSON.parse(cats);
+
+  res.render('cats/edit', {cats: cats[req.params.idx], catId: req.params.idx});
+})
 // Create GET route for show/details
 router.get('/:idx', (req, res) => {
   let cats = fs.readFileSync('./cats.json');
